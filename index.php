@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <?php include_once('nav.php'); ?>
+        <?php include_once('store.php'); ?>
 
     </div>
     <!-- Main content -->

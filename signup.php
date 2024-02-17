@@ -82,28 +82,34 @@
                 <input type="password" class="password" name="password" placeholder="Enter password">
             </div>
             <div>
-                <input type="submit" class="signup-btn" name="signup" value="Signup">
+                <input type="submit" name="signup" class="signup-btn" value="Signup">
             </div>
         </form>
     </div>
 
+    <?php
+    if (isset($_POST['signup'])) {
+        echo "Test here";
+        $username = $_POST['username'];
+        $email = $_POST['e-mail'];
+        $password = $_POST['password'];
+
+        // connect to db:
+        include_once 'db-connect.php';
+
+        // SQL query
+        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+
+        // Execute the query
+        if ($database_connection->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $database_connection->error;
+        }
+        // Close the database connection
+        $database_connection->close();
+    }
+    ?>
 </body>
 
 </html>
-<?php
-if (isset($_POST['signup'])) {
-    echo "Test here";
-    $username = $_POST['username'];
-    $email = $_POST['e-mail'];
-    $password = $_POST['password'];
-
-    // connect to db:
-    include_once 'db-connect.php';
-
-    //sql query:
-    $sql = "INSERT INTO users (username,email,password) VALUES('$username', '$email', '$password')";
-
-    // execute the query:
-    $database_connection->query($sql);
-}
-?>

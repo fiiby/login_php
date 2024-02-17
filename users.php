@@ -24,8 +24,8 @@
 </body>
 
 </html>
-<?php
 
+<?php
 $database_connection = mysqli_connect('localhost', 'root', '', 'nova-store');
 
 // var_dump($database_connection);
