@@ -156,7 +156,31 @@
             </div>
         </div>
     </div>
+    <?php
+    include_once 'db-connect.php';
 
-</body>
+    // SQL query to select all products from the database
+    $sql = "SELECT * FROM products";
 
-</html>
+    // Execute the query
+    $result = $database_connection->query($sql);
+
+    // Check if there are any products
+    if ($result->num_rows > 0) {
+        echo '<div id="root"><div class="product-list">';
+
+        // Loop through each row in the result set
+        while ($row = $result->fetch_assoc()) {
+            echo '<div class="product">';
+            echo '<img src="' . $row['product_image'] . '" alt="' . $row['product_name'] . '" class="product-image">';
+            echo '<h2 class="product-name">' . $row['product_name'] . '</h2>';
+            echo '<p class="product-price">' . $row['product_price'] . ' /-</p>';
+            echo '<button class="product-btn">click</button>';
+            echo '</div>';
+        }
+
+        echo '</div></div>';
+    } else {
+        echo "No products found";
+    }
+    ?>

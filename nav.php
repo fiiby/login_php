@@ -33,14 +33,14 @@
 
         }
 
-        .user-btn {
+        /* .user-btn {
           display: inline;
           position: relative;
          margin: 20px;
          margin: 20px;
         color: white;
         font-weight: bold;
-        }
+        } */
     </style>
 </head>
 
@@ -52,12 +52,12 @@
             <li><a href="login.php">Login</a></li>
             <li><a href="signup.php">signup</a></li>
             <li><a href="admin_dash.php?id=logout">Logout</a></li>
-            <div class="user-btn">
+            <!-- <div class="user-btn">
                 <ul>
                     <li>Hello, User </li>
 
                 </ul>
-            </div>
+            </div> -->
 
 
         </ul>
